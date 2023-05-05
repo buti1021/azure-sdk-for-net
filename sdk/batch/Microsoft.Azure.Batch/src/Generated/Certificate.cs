@@ -20,6 +20,7 @@ namespace Microsoft.Azure.Batch
     /// <summary>
     /// A certificate that can be installed on compute nodes and can be used to authenticate operations on a node.
     /// </summary>
+    [Obsolete]
     public partial class Certificate : ITransportObjectProvider<Models.CertificateAddParameter>, IInheritedBehaviors, IPropertyMetadata
     {
         private class PropertyContainer : PropertyCollection

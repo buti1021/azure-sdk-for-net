@@ -20,6 +20,7 @@ namespace Microsoft.Azure.Batch
     /// <summary>
     /// Represents a certificate object of the Azure Batch service.
     /// </summary>
+    [Obsolete]
     public partial class CertificateReference : ITransportObjectProvider<Models.CertificateReference>, IPropertyMetadata
     {
         private class PropertyContainer : PropertyCollection

@@ -80,6 +80,7 @@
         /// <param name="cancellationToken">A <see cref="CancellationToken"/> for controlling the lifetime of the asynchronous operation.</param>
         /// <returns>A <see cref="Certificate"/> containing information about the specified certificate in the Azure Batch account.</returns>
         /// <remarks>The get certificate operation runs asynchronously.</remarks>
+        [Obsolete]
         public async Task<Certificate> GetCertificateAsync(
             string thumbprintAlgorithm, 
             string thumbprint, 
@@ -114,6 +115,7 @@
         /// <param name="additionalBehaviors">A collection of <see cref="BatchClientBehavior"/> instances that are applied to the Batch service request after the <see cref="CustomBehaviors"/> and <paramref name="detailLevel"/>.</param>
         /// <returns>A <see cref="Certificate"/> containing information about the specified certificate in the Azure Batch account.</returns>
         /// <remarks>This is a blocking operation. For a non-blocking equivalent, see <see cref="GetCertificateAsync"/>.</remarks>
+        [Obsolete]
         public Certificate GetCertificate(string thumbprintAlgorithm, string thumbprint, DetailLevel detailLevel = null, IEnumerable<BatchClientBehavior> additionalBehaviors = null)
         {
             Task<Certificate> asyncTask = GetCertificateAsync(thumbprintAlgorithm, thumbprint, detailLevel, additionalBehaviors);
@@ -127,6 +129,7 @@
         /// </summary>
         /// <param name="path">The path to the .cer file.</param>
         /// <returns>A <see cref="Certificate"/> representing a new certificate that has not been added to the Batch service.</returns>
+        [Obsolete]
         public Certificate CreateCertificateFromCer(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
@@ -148,6 +151,7 @@
         /// </summary>
         /// <param name="data">The certificate data in .cer format.</param>
         /// <returns>A <see cref="Certificate"/> representing a new certificate that has not been added to the Batch service.</returns>
+        [Obsolete]
         public Certificate CreateCertificateFromCer(byte[] data)
         {
             Models.CertificateAddParameter protoCert = GetCertificateInfo(data);
@@ -162,6 +166,7 @@
         /// <param name="path">The path to the .pfx file.</param>
         /// <param name="password">The password to access the certificate private key. This can be null if the PFX is not protected by a password.</param>
         /// <returns>A <see cref="Certificate"/> representing a new certificate that has not been added to the Batch service.</returns>
+        [Obsolete]
         public Certificate CreateCertificateFromPfx(string path, string password = null)
         {
             if (string.IsNullOrWhiteSpace(path))
@@ -181,6 +186,7 @@
         /// <param name="data">The certificate data in .pfx format.</param>
         /// <param name="password">The password to access the certificate private key. This can be null if the PFX is not protected by a password.</param>
         /// <returns>A <see cref="Certificate"/> representing a new certificate that has not been added to the Batch service.</returns>
+        [Obsolete]
         public Certificate CreateCertificateFromPfx(byte[] data, string password = null)
         {
             Models.CertificateAddParameter protoCert = GetCertificateInfo(data, password);
@@ -248,6 +254,7 @@
         /// <returns>An <see cref="IPagedEnumerable{Certificate}"/> that can be used to enumerate certificates asynchronously or synchronously.</returns>
         /// <remarks>This method returns immediately; the certificates are retrieved from the Batch service only when the collection is enumerated.
         /// Retrieval is non-atomic; certificates are retrieved in pages during enumeration of the collection.</remarks>
+        [Obsolete]
         public IPagedEnumerable<Certificate> ListCertificates(DetailLevel detailLevel = null, IEnumerable<BatchClientBehavior> additionalBehaviors = null)
         {
             // set up behavior manager
